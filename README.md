@@ -1,6 +1,5 @@
 # BarcodeLocalizer
-A quick example showing how to use the new Vision framework API in iOS 11.
-In particular, the example shows how to localize barcodes using `VNDetectBarcodesRequest`.
+A quick example showing how to use the new Vision framework in iOS 11 to track barcodes (via `VNDetectBarcodesRequest`).
 
 ## Prerequisites
 * Xcode 9 Beta (tested with beta 2)
