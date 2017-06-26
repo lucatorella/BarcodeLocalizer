@@ -15,10 +15,14 @@ class ViewController: UIViewController {
     private var requests = [VNRequest]()
     private let session = AVCaptureSession()
     private lazy var drawLayer: CAShapeLayer = {
-        let shapeLayer = CAShapeLayer()
-        self.view.layer.addSublayer(shapeLayer)
-        shapeLayer.frame = self.view.bounds
-        return shapeLayer
+        let drawLayer = CAShapeLayer()
+        self.view.layer.addSublayer(drawLayer)
+        drawLayer.frame = self.view.bounds
+        drawLayer.strokeColor = UIColor.blue.cgColor
+        drawLayer.lineWidth = 1
+        drawLayer.lineJoin = kCALineJoinRound
+        drawLayer.fillColor = UIColor.clear.cgColor
+        return drawLayer
     }()
     private let bufferQueue = DispatchQueue(label: "com.lucatorella.BufferQueue",
                                             qos: .userInteractive,
@@ -59,10 +63,6 @@ class ViewController: UIViewController {
             }
 
             self.drawLayer.path = path
-            self.drawLayer.strokeColor = UIColor.blue.cgColor
-            self.drawLayer.lineWidth = 1
-            self.drawLayer.lineJoin = kCALineJoinRound
-            self.drawLayer.fillColor = UIColor.clear.cgColor
         }
     }
 
