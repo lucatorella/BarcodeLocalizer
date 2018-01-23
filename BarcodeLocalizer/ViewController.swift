@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         }
 
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewLayer.frame = view.bounds
         view.layer.addSublayer(previewLayer)
 
@@ -141,7 +141,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             requestOptions = [.cameraIntrinsics: data]
         }
 
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: 6, options: requestOptions)
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .right, options: requestOptions)
 
         do {
             try imageRequestHandler.perform(self.requests)
